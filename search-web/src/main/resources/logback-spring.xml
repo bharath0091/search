@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="false" scan="true" scanPeriod="1 hours">
+
+
+    <appender name="rootConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>%date %mdc{sessionId}[%thread] [%-20.80logger %5level] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- The root logger -->
+    <root level="INFO">
+        <springProfile name="dev">
+            <appender-ref ref="rootConsoleAppender"/>
+        </springProfile>
+        <springProfile name="!dev">
+            <appender-ref ref="rootConsoleAppender"/>
+        </springProfile>
+    </root>
+
+</configuration>

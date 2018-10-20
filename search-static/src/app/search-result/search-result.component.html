@@ -1,0 +1,18 @@
+<div class="padding">
+  <table class="table table-striped">
+    <thead>
+    <tr class="table-primary">
+      <th scope="col">Title</th>
+      <th scope="col">Type</th>
+      <th scope="col">Authors/Artists</th>
+    </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let resultItem of searchResult">
+        <td>{{resultItem.title}}</td>
+        <td>{{resultItem.type}}</td>
+        <td>{{resultItem.authors ? resultItem.authors : resultItem.artists}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

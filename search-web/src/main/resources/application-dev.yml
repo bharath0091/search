@@ -1,0 +1,9 @@
+upstream:
+  google-books:
+      url: https://www.googleapis.com/books/v1/volumes?q={0}
+      results-limit: 5
+      timeout-secs: 10
+  iTunes:
+      url: https://itunes.apple.com/search?term={0}
+      results-limit: 5
+      timeout-secs: 10
