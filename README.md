@@ -10,7 +10,7 @@ This approach shines when there are many upstream calls and they are slow
 </li>
 
 <li>
-Front end is developed using Angular, Angular CLI, typescript, NPM. 
+Front end(static content) is developed using Angular, Angular CLI, typescript, NPM. 
 The front end application can be run from ng cli or NPM. 
 Also for I have configured a maven plugin(eirslett). 
 This plugin is handy for java team members who are not comfortable with Agular eco system yet. 
@@ -20,6 +20,8 @@ However this plugin is helpful to build both front end and backend application i
 <li>Used Functional and reactive programming</li>
 
 <li>Principles like program to abstraction, separate concerns are used</li>
+
+<li>I didn't create a separate handler for serving static content. Because spring boot has a handler already to serve content from  public folder which is on classpath.</li>
 
 <li>I couldn’t get to the response time metrics. This can be done using spring actuator</li>
 </ul>
