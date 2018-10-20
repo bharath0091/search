@@ -1,5 +1,6 @@
 
-##Design details
+## Design drivers and some implementation details
+
 <ul>
 <li>
 Implemented search API with <b>reactive programming</b> using spring webflux & reactor. 
@@ -45,7 +46,7 @@ Also Unit testing and automated integration testing is imporatant but i couldnt 
 </li>
 </ul>
 
-##Steps to run application
+## Steps to run application
 <ul>
 <li>mvn clean install (Note : This is to build the code, first time build would be slow as Node and NPM need to be downloaded)</li>
 <li>Go to search-web\target folder and open command prompt at this folder</li>
@@ -54,12 +55,14 @@ Also Unit testing and automated integration testing is imporatant but i couldnt 
 <li>Enter text and click Search Button </li>
 </ul>
 
-## Minimum required to run application, angular and its dependencies would be downloaded automatically from maven install
+## Minimum required installation to run application
+
 <ul>
 <li>Java 8</li>
 <li>Maven 3.5.0</li>
 </ul>
-
+Note : Angular and its dependencies would be downloaded automatically from maven install. 
+It is not must to install Node, NPM, ng CLI for the begining
 
 
 ## Running UI/front-end application as a standalone application during development
@@ -69,6 +72,13 @@ Running the frontend application separately is flexible and faster(Eg: changes r
 
 Run `npm install` at root level in search-static folder<br>
 I have used [Angular CLI](https://github.com/angular/angular-cli) version 6.2.3. for generating scaffold, build and running  
+
+## Installation for UI
+<ul>
+<li>Node 9.9.0 or above version</li>
+<li>NPM 6.4.1 or above version</li>
+<li>Angular/ng CLI 6.2.3</li>
+</ul>
 
 ## Development server
 
