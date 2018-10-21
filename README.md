@@ -31,16 +31,16 @@ I have included a error resume publisher(onErrorResume(this::logErrorAndGetEmpty
 <li>
 Respond in 1 minute. This would happen because I have set the timeout for each upstream service as 10 seconds.
 Let us say there are 100 upstream services and all are slow. If it is a blocking java 8 implementation, it keeps 100 threads waiting for the upstream services response. Each thread occupies memory and brings context switching overhead.
-The reactive Spring WebClient and the reactor event-loop mecanism doesnt allocate one thread per upstream call.
-<b>This way the current implementation is efficient interms of resources and can scale vertically in a JVM.</b>  
+The reactive Spring WebClient and the reactor event-loop mechanism doesnt allocate one thread per upstream call.
+<b>This way the current implementation is efficient in terms of resources and can scale vertically in a JVM.</b>  
 </li>
 
 <li><b>Design Principles/patterns</b> for backend like, <br>
 1) <b>Program to abstraction/interface</b>: The handler and services classes depend on the abstracted interface instead of handler depending on the concrete service classes.<br>
-This can also be refered as <b>dependency inversion</b>. <br>
+This can also be referred as <b>dependency inversion</b>. <br>
 2) <b>Strategy pattern</b>: Both the service classes share the same interface and each service class has it's own specific & encapsulated implementation.<br>
-3) <b>Encapsulate what changes</b>: I see the items(books and albums) are mainly changing parts of the system.<br> Hence the items implementation is separated from normal framweork classes.<br> 
-While the preparation of books and albums have their specific classes. It is also possible to add one more type, let us say pets can be included in response by adding one more servise class.<br> 
+3) <b>Encapsulate what changes</b>: I see the items(books and albums) are mainly changing parts of the system.<br> Hence the items implementation is separated from normal framework classes.<br> 
+While the preparation of books and albums have their specific classes. It is also possible to add one more type, let us say pets can be included in response by adding one more service class.<br> 
 Hence Pets feature can be added without changing any other classes of the system.<br>
 This capability is called as <b>Open for extension and closed for change</b> design principle.<br>
 4) <b>Separation of concerns </b>: Every class has its own responsibility.<br>
@@ -53,14 +53,15 @@ More or less same principles are applied. Here are some frontend specific detail
  one for Search input and search button. It is called as search component.<br>
  Second one to display the search results. It is called search-result component.<br>
 The two components encapsulate their specific implementation.<br>
-2) The search and search-result components share entered search text in publish-subscribe model.
+2) The search and search-result components share entered search text in publish-subscribe model.<br>
+3) I have made use of <b>Angular hierarchical dependency injection</b>. For eg, SearchResultService is provided in search-result component, Hence it is visible only in search-result components and it's child components if any. 
 </li>
 
 <li>I didn't create a separate handler for serving static content. Because spring boot has a handler already to serve content from  public folder which is on classpath.</li>
 
-<li>I couldn’t get to the response time metrics requirement dur to time constraint and I had focused on making the core implementation better. 
+<li>I couldn’t get to the response time metrics requirement due to time constraint and I had focused on making the core implementation better. 
 Metrics can be implemented using spring AOP and spring actuator.
-Also Unit testing and automated integration testing is imporatant but i couldnt get to it with in the given time. 
+Also Unit testing and automated integration testing is important but I couldn’t get to it with in the given time. 
 </li>
 </ul>
 
@@ -81,7 +82,7 @@ Health check just returns 200 if the server is up and running</li>
 <li>Maven 3.5.0</li>
 </ul>
 Note : Angular and its dependencies would be downloaded automatically from maven install. 
-It is not must to install Node, NPM, Angular CLI for the begining.
+It is not must to install Node, NPM, Angular CLI for the beginning.
 
 
 ## Logging
@@ -124,3 +125,4 @@ Only scaffold is present at the moment, to be extended.
 ## Running unit tests(Only scaffold is present at the moment)
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 Only scaffold is present at the moment, to be extended.
+
