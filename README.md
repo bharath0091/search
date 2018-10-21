@@ -54,7 +54,7 @@ More or less same principles are applied. Here are some frontend specific detail
  Second one to display the search results. It is called search-result component.<br>
 The two components encapsulate their specific implementation.<br>
 2) The search and search-result components share entered search text in publish-subscribe model.<br>
-3) I have made use of <b>Angular hierarchical dependency injection</b>. For eg, SearchResultService is provided in search-result component, Hence it is visible only in search-result components and it's child components if any. 
+3) I have made use of <b>Angular hierarchical dependency injection</b>. For eg, SearchResultService is provided in search-result component, Hence it is visible only in search-result component and it's child components if any. 
 </li>
 
 <li>I didn't create a separate handler for serving static content. Because spring boot has a handler already to serve content from  public folder which is on classpath.</li>
