@@ -2,7 +2,6 @@ package com.search.handler;
 
 import com.search.domain.Item;
 import com.search.service.ItemsService;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.server.ServerRequest;
 import org.springframework.web.reactive.function.server.ServerResponse;
@@ -14,7 +13,6 @@ import java.util.Comparator;
 import java.util.List;
 
 @Component
-@Slf4j
 public class SearchHandler {
 
     private final List<ItemsService> itemsServices;

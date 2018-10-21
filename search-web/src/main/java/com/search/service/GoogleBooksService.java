@@ -7,7 +7,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.reactivestreams.Publisher;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.reactive.function.client.ClientResponse;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -37,7 +36,6 @@ public class GoogleBooksService implements ItemsService {
         log.info("calling google books api");
         return Mono.just(searchValue)
                 .flatMap(this::callUpstream)
-                .flatMap(clientResponse -> clientResponse.bodyToMono(GoogleBooksResponse.class))
                 .map(GoogleBooksResponse::getItems)
                 .flatMapMany(Flux::fromIterable)
                 .filter(book -> book.getVolumeInfo().getTitle() != null)
@@ -46,8 +44,8 @@ public class GoogleBooksService implements ItemsService {
                 .onErrorResume(this::logErrorAndGetEmptyFlux);
     }
 
-    private Mono<ClientResponse> callUpstream(String searchValue) {
-        return webInvoker.GET(format(url, searchValue), timeoutSecs);
+    private Mono<GoogleBooksResponse> callUpstream(String searchValue) {
+        return webInvoker.GET(format(url, searchValue), timeoutSecs, GoogleBooksResponse.class);
     }
 
     private Publisher<Item> logErrorAndGetEmptyFlux(Throwable throwable) {
