@@ -35,16 +35,16 @@ The reactive Spring WebClient and the reactor event-loop mecanism doesnt allocat
 <b>This way the current implementation is efficient interms of resources and can scale vertically in a JVM.</b>  
 </li>
 
-<li><b>Design Principles/patterns</b> for backend like, 
-1) Program to abstraction/interface: The handler and services classes depend on the abstracted interface instead of handler depending on the concrete service classes.<br>
+<li><b>Design Principles/patterns</b> for backend like, <br>
+1) <b>Program to abstraction/interface</b>: The handler and services classes depend on the abstracted interface instead of handler depending on the concrete service classes.<br>
 This can also be refered as <b>dependency inversion</b>. <br>
-2) Strategy pattern: Both the service classes share the same interface and each service class has it's own specific & encapsulated implementation.<br>
-3) Encapsulate what changes: I see the items(books and albums) are mainly changing parts of the system.<br> Hence the items implementation is separated from normal framweork classes.<br> 
+2) <b>Strategy pattern</b>: Both the service classes share the same interface and each service class has it's own specific & encapsulated implementation.<br>
+3) <b>Encapsulate what changes</b>: I see the items(books and albums) are mainly changing parts of the system.<br> Hence the items implementation is separated from normal framweork classes.<br> 
 While the preparation of books and albums have their specific classes. It is also possible to add one more type, let us say pets can be included in response by adding one more servise class.<br> 
 Hence Pets feature can be added without changing any other classes of the system.<br>
 This capability is called as <b>Open for extension and closed for change</b> design principle.<br>
-4) Separation of concerns : Every class has its own responsibility.<br>
-5) The domain objects are immutable including the List of values in the object.
+4) <b>Separation of concerns </b>: Every class has its own responsibility.<br>
+5) The domain objects are <b>immutable </b>including the List of values in the object.
 </li>
 
 <li><b>Design Principles/patterns</b> for UI/frontend like,
